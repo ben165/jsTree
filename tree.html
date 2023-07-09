@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Tree</title>
+</head>
+
+<body>
+
+<h3>Tree visualization</h3>
+
+<p>
+    <label for="amount">Amount of numbers:</label>
+    <input type="text" id="amountInts" name="amount" value="14" style="width:50px;">
+    <input type="button" value="Create" onclick="plotTree();">
+    <input type="button" value="StepInfix" onclick="TreeFunctions.stepInfix(stepper);">
+    <input type="button" value="ResetInfix" onclick="TreeFunctions.stepReset();">
+</p>
+
+<p>
+    <canvas id="treeCanvas" width="500" height="150" style="border:1px solid #000000;"></canvas>
+</p>
+
+<h4>Amount nodes</h4>
+<p id="amount"></p>
+
+<h4>Max depth</h4>
+<p id="tiefe"></p>
+
+<h4>Infix</h4>
+<p id="infix"></p>
+
+<h4>Prefix</h4>
+<p id="prefix"></p>
+
+<h4>Postfix</h4>
+<p id="postfix"></p>
+
+<h4>Breadth-first search</h4>
+<p id="breit"></p>
+
+<h4>Depth-first search</h4>
+<p id="tief"></p>
+
+<script src="tree.js"></script>
+<script>plotTree()</script>
+
+<script>
+//Global variables
+var root;
+var stepper;
+
+//infixStepper = new Stepper(root, list1);
+//temp = TreeFunctions.stepInfix(root, list1);
+//const element = document.querySelector('n0');
+//document.getElementById("n0").style.color = "red";
+</script>
+
+</body>
+
+
+</html>
