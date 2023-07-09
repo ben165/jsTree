@@ -19,6 +19,7 @@ class Stepper {
 // Globals
 var root;
 var counter;
+var w = window.innerWidth;
 
 inorderList = [];
 preorderList = [];
@@ -26,6 +27,7 @@ postorderList = [];
 
 // Canvas
 c = document.getElementById("treeCanvas");
+c.width = w-20;
 ctx = c.getContext("2d");
 
 
