@@ -10,16 +10,19 @@
 
 <p>
 <label for="amount">Amount of numbers:</label>
-<input type="text" id="amountInts" name="amount" value="14" style="width:50px;">
+<input type="text" id="amountInts" name="amount" value="30" style="width:50px;">
 <input type="button" value="Create" onclick="plotTree();">
-
-<p>
-<input type="button" value="Infix Step" onclick="TreeFunctions.plotOne(root, ctx);">
-<input type="button" value="Prefix Step" onclick="TreeFunctions.plotOne(root, ctx);">
-<input type="button" value="Postfix Step" onclick="TreeFunctions.plotOne(root, ctx);">
 </p>
 
-<input type="button" value="Reset" onclick="TreeFunctions.resetCounter();">
+<p>
+<input type="button" value="Infix Step" onclick="TreeFunctions.plotOne(inorderList[counter], ctx);">
+<input type="button" value="Prefix Step" onclick="TreeFunctions.plotOne(preorderList[counter], ctx);">
+<input type="button" value="Postfix Step" onclick="TreeFunctions.plotOne(postorderList[counter], ctx);">
+</p>
+
+<p>
+<input type="button" value="Reset Canvas" onclick="clearCanvas(c, ctx);">
+<input type="button" value="Reset Stepper" onclick="TreeFunctions.resetCounter();">
 </p>
 
 <p>
@@ -31,21 +34,6 @@
 
 <h4>Max depth</h4>
 <p id="tiefe"></p>
-
-<h4>Infix</h4>
-<p id="infix"></p>
-
-<h4>Prefix</h4>
-<p id="prefix"></p>
-
-<h4>Postfix</h4>
-<p id="postfix"></p>
-
-<h4>Breadth-first search</h4>
-<p id="breit"></p>
-
-<h4>Depth-first search</h4>
-<p id="tief"></p>
 
 <script src="tree.js"></script>
 <script>plotTree()</script>

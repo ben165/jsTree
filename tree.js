@@ -40,9 +40,8 @@ function plotTree() {
 	// Creates a tree out of integers to amount
 	amount = Number(document.getElementById("amountInts").value);
 	root = TreeFunctions.createTree(amount);
+	counter = 0;
 
-	stepper = new Stepper(root);
-	
 	clearCanvas(c, ctx);
 
 	// Set position of all nodes in tree (root, x, z, width)
@@ -53,32 +52,14 @@ function plotTree() {
 
 	document.getElementById("amount").innerHTML = TreeFunctions.amount(root);
 	document.getElementById("tiefe").innerHTML = TreeFunctions.depth(root);
-	
-	//console.log("IN-ORDER:\n")
+
+	inorderList = [];
+	preorderList = [];
+	postorderList = [];
+
 	TreeFunctions.inorder(root, inorderList)
-	//console.log( list1 )
-	document.getElementById("infix").innerHTML = inorderList.join(", ");
-	
-	//console.log("\nPRE-ORDER:\n")
-	TreeFunctions.preorder(root, preorderList)
-	document.getElementById("prefix").innerHTML = preorderList.join(", ");
-	
-	//console.log("\nPOST-ORDER:\n")
+	TreeFunctions.preorder(root, preorderList)	
 	TreeFunctions.postorder(root, postorderList)
-	//console.log( list1 )
-	document.getElementById("postfix").innerHTML = postorderList.join(", ");
-	
-	//console.log("\nBreitensuche:\n")
-	//list1 = []
-	//TreeFunctions.breitensuche(root, list1)
-	//console.log( list1 )
-	//document.getElementById("breit").innerHTML = list1.join(", ");
-	
-	//console.log("\nTiefensuche:\n")
-	//list1 = []
-	//TreeFunctions.tiefensuche(root, list1)
-	//console.log( list1 )
-	//document.getElementById("tief").innerHTML = list1.join(", ");
 }
 
 
@@ -125,12 +106,18 @@ const TreeFunctions = {
 
 	// Traversierung: Wanderung durch Baum verschiedene Verfahren
 
+	resetCounter() {
+		counter = 0;
+		inorderList = [];
+		preorderList = [];
+		postorderList = [];
+	},
+
 	// LVR Inorder
 	inorder(node, list1) {
 		if (node != null) { // && node.value != null
 			this.inorder(node.l, list1);
-			//console.log(node.value);
-			list1.push(node.value);
+			list1.push(node);
 			this.inorder(node.r, list1);
 		}
 	},
@@ -139,7 +126,7 @@ const TreeFunctions = {
 	preorder(node, list1) {
 		if (node != null) {
 			//console.log(node.value);
-			list1.push(node.value);
+			list1.push(node);
 			this.preorder(node.l, list1);
 			this.preorder(node.r, list1);
 		}
@@ -151,7 +138,7 @@ const TreeFunctions = {
 			this.postorder(node.l, list1);
 			this.postorder(node.r, list1);
 			//console.log(node.value);
-			list1.push(node.value);
+			list1.push(node);
 		}
 	},
 
