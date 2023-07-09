@@ -240,6 +240,7 @@ const TreeFunctions = {
 	// Reset Stepper
 	stepReset() {
 		stepper = new Stepper(root);
+		clearCanvas(c, ctx);
 	},
 
 	// Infix Stepper
