@@ -108,9 +108,11 @@ const TreeFunctions = {
 
 	resetCounter() {
 		counter = 0;
-		inorderList = [];
-		preorderList = [];
-		postorderList = [];
+		clearCanvas(c, ctx);
+		TreeFunctions.plot3(root, ctx);
+		//inorderList = [];
+		//preorderList = [];
+		//postorderList = [];
 	},
 
 	// LVR Inorder
