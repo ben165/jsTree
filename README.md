@@ -8,6 +8,6 @@ Different traversals and characteristics are also shown.
 
 ## Picture
 
-![Pic01](01.png)
+![Pic01](pics/01.png)
 
-![Pic02](02.png)
+![Pic02](pics/02.png)
