@@ -17,8 +17,12 @@ class Stepper {
 }
 
 // Globals
-var root; //treeRoot
-var stepper;
+var root;
+var counter;
+
+inorderList = [];
+preorderList = [];
+postorderList = [];
 
 // Canvas
 c = document.getElementById("treeCanvas");
@@ -45,41 +49,36 @@ function plotTree() {
 	TreeFunctions.posSet(root, Math.round(c.width/2), 20, Math.round(c.width/2));
 
 	// waagrechter Plot
-	list1 = [];
 	TreeFunctions.plot3(root, ctx);
 
 	document.getElementById("amount").innerHTML = TreeFunctions.amount(root);
 	document.getElementById("tiefe").innerHTML = TreeFunctions.depth(root);
 	
 	//console.log("IN-ORDER:\n")
-	list1 = []
-	TreeFunctions.inorder(root, list1)
+	TreeFunctions.inorder(root, inorderList)
 	//console.log( list1 )
-	document.getElementById("infix").innerHTML = list1.join(", ");
+	document.getElementById("infix").innerHTML = inorderList.join(", ");
 	
 	//console.log("\nPRE-ORDER:\n")
-	list1 = []
-	TreeFunctions.preorder(root, list1)
-	//console.log( list1 )
-	document.getElementById("prefix").innerHTML = list1.join(", ");
+	TreeFunctions.preorder(root, preorderList)
+	document.getElementById("prefix").innerHTML = preorderList.join(", ");
 	
 	//console.log("\nPOST-ORDER:\n")
-	list1 = []
-	TreeFunctions.postorder(root, list1)
+	TreeFunctions.postorder(root, postorderList)
 	//console.log( list1 )
-	document.getElementById("postfix").innerHTML = list1.join(", ");
+	document.getElementById("postfix").innerHTML = postorderList.join(", ");
 	
 	//console.log("\nBreitensuche:\n")
-	list1 = []
-	TreeFunctions.breitensuche(root, list1)
+	//list1 = []
+	//TreeFunctions.breitensuche(root, list1)
 	//console.log( list1 )
-	document.getElementById("breit").innerHTML = list1.join(", ");
+	//document.getElementById("breit").innerHTML = list1.join(", ");
 	
 	//console.log("\nTiefensuche:\n")
-	list1 = []
-	TreeFunctions.tiefensuche(root, list1)
+	//list1 = []
+	//TreeFunctions.tiefensuche(root, list1)
 	//console.log( list1 )
-	document.getElementById("tief").innerHTML = list1.join(", ");
+	//document.getElementById("tief").innerHTML = list1.join(", ");
 }
 
 
@@ -311,6 +310,7 @@ const TreeFunctions = {
 			ctx.strokeStyle = "red";
 			ctx.lineWidth = "2";
 			ctx.stroke();
+			++counter;
 		}
 	},
 
